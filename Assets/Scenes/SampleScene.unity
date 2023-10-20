@@ -355,7 +355,14 @@ MonoBehaviour:
   panelDeGameOver: {fileID: 357992262}
   textoDePontuacaoFinal: {fileID: 1082751810}
   textoDeHighscore: {fileID: 415873036}
+  velocidadeAumentada: 1
+  tempoDescontadoEntreOsSpawns: 0.25
+  tempoMinimoEntreOsSpawns: 0.25
   pontuacaoAtual: 0
+  pontuacaoParaAumentarDificuldade: 75
+  pontuacaoParaDificuldade: 0
+  chanceDiminuidaParaDropar: 1
+  chanceMinimaParaDropar: 10
 --- !u!4 &867980170
 Transform:
   m_ObjectHideFlags: 0
@@ -412,6 +419,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1686360557318964046, guid: 041cca8782fe2c44fabf49ac462c90f3, type: 3}
+      propertyPath: tempoMaximoEntreOsSpawns
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3959867978279155553, guid: 041cca8782fe2c44fabf49ac462c90f3, type: 3}
       propertyPath: m_Name
       value: Gerador de Inimigos
@@ -920,6 +931,10 @@ PrefabInstance:
       propertyPath: barraDeEnergiaDoEscudo
       value: 
       objectReference: {fileID: 15254038}
+    - target: {fileID: 7806368642387818429, guid: 5bf3a4bdbbf291149a4600c9f6366320, type: 3}
+      propertyPath: isJogadorVivo
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -166,14 +166,16 @@ MonoBehaviour:
   localDoDisparo: {fileID: 7194727566315856144}
   itemParaDropar: {fileID: 856819841477025583, guid: 2a9f9699f8f88dc43aa93b3bac3b8111, type: 3}
   efeitoDeExplosao: {fileID: 2675118399425536886, guid: aa5de7673c3c11e4bb762a6d5d1da972, type: 3}
-  velocidadeInimigo: 8
+  velocidadeInimigo: 4
   vidaAtual: 0
   vidaMaxima: 3
   pontosParaDar: 15
   chanceParaDropar: 30
   dano: 1
-  tempoMaximoEntreLasers: 0.5
+  tempoMaximoEntreLasers: 0.65
   tempoAtualLasers: 0
+  tempoDescontadoEntreOsSpawns: 0.25
+  tempoMinimoEntreOsSpawns: 0.25
   isAtirador: 1
   isInimigoAtivado: 0
 --- !u!1 &5807946886839534328

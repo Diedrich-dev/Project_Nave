@@ -259,7 +259,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 638bc5aee978b6742ae6c8876a7e116a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rigidbody2D: {fileID: 151770207064483689}
+  rbody2D: {fileID: 151770207064483689}
   gameObjectLaser: {fileID: 1618052232729837945, guid: 9b84264e2ffe44847862bfbbbf735340, type: 3}
   localDoDisparoUnico: {fileID: 7425449819723192304}
   localDoDisparoEsquerda: {fileID: 4832199658963272597}
@@ -286,7 +286,7 @@ MonoBehaviour:
   escudoDoJogador: {fileID: 8330711521172216390}
   vidaMaxima: 15
   vidaAtual: 0
-  vidaMaximaEscudo: 5
+  vidaMaximaEscudo: 10
   vidaAtualEscudo: 0
   isEscudo: 0
 --- !u!1 &8330711521172216390

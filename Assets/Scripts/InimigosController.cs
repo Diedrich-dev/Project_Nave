@@ -12,14 +12,11 @@ public class InimigosController : MonoBehaviour
 
     public int vidaAtual;
     public int vidaMaxima;
-
     public int pontosParaDar;
     public int chanceParaDropar;
-
     public int dano;
     public float tempoMaximoEntreLasers;
     public float tempoAtualLasers;
-
     public bool isAtirador;
     public bool isInimigoAtivado;
     // Start is called before the first frame update
@@ -27,17 +24,19 @@ public class InimigosController : MonoBehaviour
     {
         isInimigoAtivado = false;
         vidaAtual = vidaMaxima;
+        velocidadeInimigo += GameManager.instance.velocidadeAumentada;
+        chanceParaDropar -= GameManager.instance.chanceDiminuidaParaDropar;
     }
 
     // Update is called once per frame
     void Update()
     {
         MovimentarInimigo();
-        if(isAtirador && isInimigoAtivado)
+        if (isAtirador && isInimigoAtivado)
         {
             AtirarLaser();
         }
-        
+
     }
 
     public void AtivarInimigo()
@@ -53,7 +52,7 @@ public class InimigosController : MonoBehaviour
     private void AtirarLaser()
     {
         tempoAtualLasers -= Time.deltaTime;
-        if(tempoAtualLasers <= 0)
+        if (tempoAtualLasers <= 0)
         {
             Instantiate(gameObjectLaserInimigo, localDoDisparo.position, Quaternion.Euler(0F, 0F, 90F));
             tempoAtualLasers = tempoMaximoEntreLasers;
@@ -63,15 +62,17 @@ public class InimigosController : MonoBehaviour
     public void MachucarInimigo(int dano)
     {
         vidaAtual -= dano;
-        if(vidaAtual <= 0)
+
+        if (vidaAtual <= 0)
         {
             GameManager.instance.AumentarPontuacao(pontosParaDar);
+            
             Instantiate(efeitoDeExplosao, transform.position, transform.rotation);
             EfeitosSonoros.instance.somDaExplosao.Play();
 
             int numeroAleatorio = Random.Range(0, 100);
 
-            if(numeroAleatorio <= chanceParaDropar)
+            if (numeroAleatorio <= chanceParaDropar)
             {
                 Instantiate(itemParaDropar, transform.position, Quaternion.Euler(0F, 0F, 0F));
             }
@@ -81,7 +82,7 @@ public class InimigosController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<VidaController>().MachucarJogador(dano);
             Instantiate(efeitoDeExplosao, transform.position, transform.rotation);

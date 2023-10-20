@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public Rigidbody2D rigidbody2D;
+    public Rigidbody2D rbody2D;
     public GameObject gameObjectLaser;
     public Transform localDoDisparoUnico;
     public Transform localDoDisparoEsquerda;
@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private void MovimentarNave() 
     {
         teclasApertadas = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        rigidbody2D.velocity = teclasApertadas.normalized * velocidadeNave;
+        rbody2D.velocity = teclasApertadas.normalized * velocidadeNave;
     }
 
     private void AtirarLaser()

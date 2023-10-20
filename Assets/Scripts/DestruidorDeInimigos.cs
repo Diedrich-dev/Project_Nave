@@ -9,6 +9,7 @@ public class DestruidorDeInimigos : MonoBehaviour
         if(collider.gameObject.CompareTag("Inimigo"))
         {
             Destroy(collider.gameObject);
+            GameManager.instance.GameOver();
         }
     }
 }

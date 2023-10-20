@@ -12,8 +12,15 @@ public class GameManager : MonoBehaviour
     public GameObject panelDeGameOver;
     public Text textoDePontuacaoFinal;
     public Text textoDeHighscore;
+    public float velocidadeAumentada;
+    public float tempoDescontadoEntreOsSpawns;
+    public float tempoMinimoEntreOsSpawns;
     public int pontuacaoAtual;
-
+    public int pontuacaoParaAumentarDificuldade;
+    public int pontuacaoParaDificuldade;
+    public int chanceDiminuidaParaDropar;
+    public int chanceMinimaParaDropar;
+ 
     void Awake() {
         instance = this;
     }
@@ -24,6 +31,7 @@ public class GameManager : MonoBehaviour
         musicaDoJogo.Play();
         pontuacaoAtual = 0;
         textoDePontuacaoAtual.text = "PONTUAÇÃO: " + pontuacaoAtual;
+        pontuacaoParaDificuldade = pontuacaoParaAumentarDificuldade;
     }
 
     // Update is called once per frame
@@ -36,6 +44,24 @@ public class GameManager : MonoBehaviour
     {
         pontuacaoAtual += pontosParaGanhar;
         textoDePontuacaoAtual.text = "PONTUAÇÃO: " + pontuacaoAtual;
+        if(pontuacaoAtual >= pontuacaoParaDificuldade)
+        {
+            pontuacaoParaDificuldade += pontuacaoParaAumentarDificuldade;
+            AumentarDificuldadeDoJogo();
+        }
+    }
+    public void AumentarDificuldadeDoJogo()
+    {
+        velocidadeAumentada++;
+        if (chanceDiminuidaParaDropar >= chanceMinimaParaDropar)
+        {
+            chanceDiminuidaParaDropar--;
+        }
+
+        if(GeradorDeObjetosController.instance.tempoMaximoEntreOsSpawns >= tempoMinimoEntreOsSpawns){
+            GeradorDeObjetosController.instance.tempoMaximoEntreOsSpawns -= tempoDescontadoEntreOsSpawns;
+        }
+
     }
 
     public void GameOver()

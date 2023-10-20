@@ -75,7 +75,7 @@ public class VidaController : MonoBehaviour
         else 
         {
             vidaAtualEscudo -= danoReceber;
-            barraDeEnergiaDoEscudo.value -= vidaAtualEscudo;
+            barraDeEnergiaDoEscudo.value = vidaAtualEscudo;
             if(vidaAtualEscudo <= 0)
             {
                 escudoDoJogador.SetActive(false);

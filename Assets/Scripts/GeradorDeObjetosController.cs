@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class GeradorDeObjetosController : MonoBehaviour
 {
+    public static GeradorDeObjetosController instance;
     public GameObject[] gameObjectsSpawns;
     public Transform[] pontosDeSpawns;
 
     public float tempoMaximoEntreOsSpawns;
     public float tempoAtualDosSpawns;
+
+    void Awake(){
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
